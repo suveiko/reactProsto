@@ -1,0 +1,14 @@
+.colorOnButton {
+    background-color: green;
+    border: 1px;
+}
+
+.colorOffButton {
+    background-color: red;
+}
+
+.round {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
