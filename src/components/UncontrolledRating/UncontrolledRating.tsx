@@ -2,8 +2,12 @@ import React, {useState} from "react";
 
 type ValueType = 0 | 1 | 2 | 3 | 4 | 5
 
-export function UncontrolledRating() {
-    let [value, setValue] = useState<ValueType>(0)
+type RatingType = {
+    defaultValue?: ValueType
+}
+
+export function UncontrolledRating({defaultValue}: RatingType) {
+    let [value, setValue] = useState<ValueType>(defaultValue ? defaultValue : 0)
     return (
         <div>
             <Star selected={value > 0} callBack={() => setValue(1)}/>
@@ -20,5 +24,6 @@ type StarPropsType = {
     callBack: () => void
 }
 
-const Star = ({selected, callBack}: StarPropsType) => <span onClick={callBack}>{selected ? <b>star </b> : ' star'}</span>
+const Star = ({selected, callBack}: StarPropsType) => <span onClick={callBack}>{selected ?
+    <b>star </b> : ' star'}</span>
 

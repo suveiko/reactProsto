@@ -6,7 +6,7 @@ type AccordionPropsType = {
     callBack: (collapsed: boolean) => void
 }
 
-function Accordion({titleValue, collapsed, callBack}: AccordionPropsType) {
+export function Accordion({titleValue, collapsed, callBack}: AccordionPropsType) {
     console.log('Accordion rendering')
     return (
         <div>
@@ -38,5 +38,3 @@ function AccordionBody() {
         </ul>
     )
 }
-
-export default Accordion;
