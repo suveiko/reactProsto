@@ -30,4 +30,26 @@ export const GetValueOfUncontrolledInputByButtonPress = () => {
     </>
 }
 
-export const ControlledInput = () => <input value={'Google'}/>
+export const ControlledInput = () => {
+    const [parentValue, setParentValue] = useState('')
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) =>
+        setParentValue(e.currentTarget.value)
+
+    return <>
+        <input
+            value={parentValue}
+            onChange={onChangeHandler}
+        />
+        ~~ {parentValue}
+    </>
+}
+
+export const ControlledCheckbox = () => {
+
+}
+
+export const ControlledSelect = () => {
+
+}
+
+export const ControlledInputWithFixedValue = () => <input value={'Google'}/>
