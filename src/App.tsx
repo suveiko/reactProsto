@@ -3,7 +3,6 @@ import './App.css';
 import {OnOffUncontrolled} from "./components/OnOffUncontrolled/OnOffUncontrolled";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
-import {Accordion} from "./components/Accordion/Accordion";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {OnOff} from "./components/OnOff/OnOff";
 
@@ -20,7 +19,6 @@ function App() {
             <UncontrolledAccordion titleValue={"Menu"} />
             <UncontrolledRating/>
             <Rating value={ratingValue} onClick={setRatingValue} />
-            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed} callBack={setAccordionCollapsed}/>
             <OnOff value={on} setOn={setOn}/>
         </div>
     );

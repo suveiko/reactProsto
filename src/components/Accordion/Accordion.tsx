@@ -4,14 +4,15 @@ type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
     callBack: (collapsed: boolean) => void
+    items: string[]
 }
 
-export function Accordion({titleValue, collapsed, callBack}: AccordionPropsType) {
+export function Accordion({titleValue, collapsed, callBack, items}: AccordionPropsType) {
     console.log('Accordion rendering')
     return (
         <div>
             <AccordionTitle title={titleValue} onClick={() => callBack(!collapsed)}/>
-            {!collapsed && <AccordionBody/>}
+            {!collapsed && <AccordionBody items={items}/>}
         </div>
     )
 }
@@ -24,17 +25,21 @@ type AccordionTitlePropsType = {
 function AccordionTitle({title, onClick}: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering')
     return (
-        <h3 onClick={onClick}> --{title}-- </h3>
+        <h3 onClick={onClick}>   ----{title}----  </h3>
     )
 }
 
-function AccordionBody() {
+type AccordionBodyType = {
+    items: string[]
+}
+
+function AccordionBody({items}:AccordionBodyType) {
     console.log('AccordionBody rendering')
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {items.map((i, index) =>
+                <li key={index}>{i}</li>
+            )}
         </ul>
     )
 }
