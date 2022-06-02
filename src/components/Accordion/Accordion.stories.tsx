@@ -8,6 +8,7 @@ export default {
 }
 
 const callBack = action('Accordion mode changed clicked')
+const onClickCallBack = action('Some item was clicked')
 
 export const CollapsedMode = () =>
     <Accordion
@@ -15,13 +16,22 @@ export const CollapsedMode = () =>
         collapsed={true}
         callBack={callBack}
         items={[]}
+        onClick={onClickCallBack}
     />
 export const UncollapsedMode = () =>
     <Accordion
         titleValue={'Menu'}
         collapsed={false}
         callBack={callBack}
-        items={['Sasha', 'Anton', 'Dimych', 'Valera']}
+        items={
+            [
+                {title: 'Sasha', value: 1},
+                {title: 'Anton', value: 2},
+                {title: 'Dimych', value: 3},
+                {title: 'Valera', value: 4}
+            ]
+        }
+        onClick={onClickCallBack}
     />
 
 
@@ -31,7 +41,15 @@ export const AccordionChanging = () => {
         titleValue={'Menu'}
         collapsed={value}
         callBack={setValue}
-        items={['Sasha', 'Anton', 'Dimych', 'Valera']}
+        items={
+            [
+                {title: 'Sasha', value: 1},
+                {title: 'Anton', value: 2},
+                {title: 'Dimych', value: 3},
+                {title: 'Valera', value: 4}
+            ]
+        }
+        onClick={onClickCallBack}
     />
 }
 
