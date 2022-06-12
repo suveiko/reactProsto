@@ -5,6 +5,7 @@ type AccordionPropsType = {
 }
 
 
+
 export function UncontrolledAccordion({titleValue}: AccordionPropsType) {
 
     let [collapsed, setCollapsed] = useState(true)
@@ -18,6 +19,8 @@ export function UncontrolledAccordion({titleValue}: AccordionPropsType) {
         </div>
     )
 }
+
+
 
 type AccordionTitlePropsType = {
     title: string
