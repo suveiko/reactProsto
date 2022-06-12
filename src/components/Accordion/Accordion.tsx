@@ -17,13 +17,13 @@ type AccordionPropsType = {
 
 export function Accordion({titleValue, items, onClick}: AccordionPropsType) {
 
-    const [collapsed, dispatch] = useReducer(reducer, false)
+    const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
     console.log('Accordion rendering')
     return (
         <div>
             <AccordionTitle title={titleValue} onClick={() => dispatch({type: TOGGLE_CONSTANT})}/>
-            {!collapsed && <AccordionBody items={items} onClick={onClick}/>}
+            {!state.collapsed && <AccordionBody items={items} onClick={onClick}/>}
         </div>
     )
 }
