@@ -1,41 +1,38 @@
-.wrapperContainer {
-    width: 150px;
+.select span.main{
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
 }
 
-.wrapper {
-    background: #5c9cd8;
-    font-size: 20px;
-    display: flex;
-    align-items: flex-start;
-    padding: 10px;
-    color: black;
-    border-radius: 5px;
+.items {
+    position: absolute;
+    border: 1px red solid;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.item.selected {
+    background-color: blue;
+    color: white;
+}
+
+.item:hover {
+    background-color: blue;
+    color: white;
 }
 
 .arrowBottom {
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
     margin-left: auto;
     margin-right: 0;
     padding: 5px
 }
 
 .arrowRight {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     margin-left: auto;
     margin-right: 0;
-}
-
-.popupContainer {
-    margin-top: 5px;
-    border: 1px solid grey;
-    border-radius: 5px;
-}
-
-.popupList {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    color: grey
 }

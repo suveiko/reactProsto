@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {action} from "@storybook/addon-actions";
 import {Select} from "./Select";
 
@@ -10,10 +10,12 @@ export default {
 const callBack = action('Accordion mode changed clicked')
 const onClickCallBack = action('Some item was clicked')
 
-export const SelectedMode = () =>
-    <>
+export const SelectedMode = () => {
+    const [value, setValue] = useState('2')
+
+    return <>
         <Select
-            value={'2'}
+            value={value}
             items={
                 [
                     {title: 'Sasha', value: '1'},
@@ -22,12 +24,16 @@ export const SelectedMode = () =>
                     {title: 'Valera', value: '4'}
                 ]
             }
-            onChange={onClickCallBack}
+            onChange={setValue}
         />
     </>
-export const SelectedModeWithoutValue = () =>
-    <>
+}
+export const SelectedModeWithoutValue = () => {
+    const [value, setValue] = useState(null)
+
+    return <>
         <Select
+            value={value}
             items={
                 [
                     {title: 'Sasha', value: '1'},
@@ -36,6 +42,7 @@ export const SelectedModeWithoutValue = () =>
                     {title: 'Valera', value: '4'}
                 ]
             }
-            onChange={onClickCallBack}
+            onChange={setValue}
         />
     </>
+}
