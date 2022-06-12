@@ -5,7 +5,6 @@ import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {OnOff} from "./components/OnOff/OnOff";
-import {Select} from "./components/Select/Select";
 
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
             <UncontrolledRating/>
             <Rating value={ratingValue} onClick={setRatingValue} />
             <OnOff value={on} setOn={setOn}/>
-            <Select/>
         </div>
     );
 }

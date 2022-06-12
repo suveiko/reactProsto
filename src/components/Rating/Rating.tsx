@@ -30,7 +30,19 @@ function Star({selected, onClick}: StarType) {
     console.log('Star rendering')
     return (
         <span onClick={() => onClick()}>
-          {selected ? <b> star</b> : ' star'}
+          {selected ? <b
+                  style={{
+                      color: '#000',
+                      cursor: 'pointer'
+                  }}
+              >&#9733;
+              </b>
+              : <span style={{
+                  color: '#ccc',
+                  cursor: 'pointer'
+              }}>
+                  &#9733;
+              </span>}
         </span>
     )
 }
