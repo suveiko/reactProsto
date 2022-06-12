@@ -1,25 +1,43 @@
-import React from "react";
+import {useState} from "react";
 
-type ItemType = {
-    title: string
-    value: any
-}
+import s from './Select.module.css'
 
-type SelectType = {
-    value: any
-    onChange: (value: any) => void
-    items: ItemType[]
-}
+export function Select() {
 
-export function Select({value, onChange, items}: SelectType) {
+    const popupList = ['Sasha', 'Artem', 'Max', 'Bob']
+    const [isVisible, setIsVisible] = useState(true)
+    const [popupType, setPopupType] = useState(0)
+
+    const onClickLi = (i: number) => {
+        setPopupType(i)
+        setIsVisible(false)
+    }
+
     return (
-        <div>
-            <div>{value}</div>
-            {items.map((i, index) => {
-                return (
-                    <div onClick={onChange}>{i.title}</div>
-                )
-            })}
+        <div className={s.wrapperContainer}>
+                <div className={s.wrapper} onClick={() => setIsVisible(!isVisible)}>
+                    {popupList[popupType]}
+                    {isVisible ? <img
+                        className={s.arrowBottom}
+                        src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+                        alt=""
+                    /> : <img
+                        className={s.arrowRight}
+                        src="https://cdn-icons.flaticon.com/png/512/2989/premium/2989988.png?token=exp=1655016341~hmac=d3be35ddf134984234db314a3635914b"
+                        alt=""
+                    /> }
+                </div>
+            {isVisible && <div className={s.popupContainer}>
+                <div>
+                    {popupList.map((p, i) => {
+                        return (
+                            <div className={s.popupList} key={i} onClick={() => onClickLi(i)}>
+                                {p}
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>}
         </div>
     )
 }
