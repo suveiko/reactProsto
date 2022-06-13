@@ -6,7 +6,7 @@ type RatingType = {
     defaultValue?: ValueType
 }
 
-export function UncontrolledRating({defaultValue}: RatingType) {
+export function UncontrolledRatingSecret({defaultValue}: RatingType) {
     let [value, setValue] = useState<ValueType>(defaultValue ? defaultValue : 0)
     return (
         <div>
@@ -19,11 +19,27 @@ export function UncontrolledRating({defaultValue}: RatingType) {
     )
 }
 
+export const UncontrolledRating = React.memo(UncontrolledRatingSecret)
+
 type StarPropsType = {
     selected: boolean
     callBack: () => void
 }
 
-const Star = ({selected, callBack}: StarPropsType) => <span onClick={callBack}>{selected ?
-    <b>star </b> : ' star'}</span>
+const StarSecret = ({selected, callBack}: StarPropsType) => <span onClick={callBack}>{selected ? <b
+        style={{
+            color: '#000',
+            cursor: 'pointer'
+        }}
+    >&#9733;
+    </b>
+    : <span style={{
+        color: '#ccc',
+        cursor: 'pointer'
+    }}>
+                  &#9733;
+              </span>
+}</span>
+
+const Star = React.memo(StarSecret)
 
