@@ -1,4 +1,4 @@
-import {useMemo, useState} from "react";
+import React, {useMemo, useState} from "react";
 
 export default {
     title: 'useMemo'
@@ -39,4 +39,39 @@ export const DifficultCountingExample = () => {
         <div>Result for a: {resultA}</div>
         <div>Result for b: {resultB}</div>
     </>
+}
+
+const UsersSecret = (props: { users: string[] }) => {
+    console.log('Users Secret')
+    return <div>{
+        props.users.map((u, i) => (
+            <div key={i}>{u}</div>
+        ))}
+    </div>
+}
+
+const Users = React.memo(UsersSecret)
+
+export const HelpsToReactMemo = () => {
+    console.log('HelpsToReactMemo')
+
+    const [counter, setCounter] = useState(0)
+    const [users, setUsers] = useState(
+        ['Sasha', 'Anton', 'Bob']
+    )
+    const newArray = useMemo(() => {
+        return users.filter(u => u.toLowerCase().includes('a'))
+    }, [users])
+
+    const addUser = () => {
+        setUsers([...users, 'Sveta ' + new Date().getTime()])
+    }
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        <button onClick={addUser}>Add user</button>
+        {counter}
+        <Users users={newArray}/>
+    </>
+
 }
