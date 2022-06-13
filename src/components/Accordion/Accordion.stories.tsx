@@ -35,7 +35,7 @@ export const UncollapsedMode = () =>
     />
 
 
-export const AccordionChanging = () => {
+export const AccordionChangingSecret = () => {
     const [value, setValue] = useState(true)
     return <Accordion
         titleValue={'Menu'}
@@ -52,5 +52,6 @@ export const AccordionChanging = () => {
         onClick={onClickCallBack}
     />
 }
+
 
 

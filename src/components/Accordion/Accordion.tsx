@@ -15,7 +15,7 @@ type AccordionPropsType = {
 }
 
 
-export function Accordion({titleValue, items, onClick}: AccordionPropsType) {
+export function AccordionSecret({titleValue, items, onClick}: AccordionPropsType) {
 
     const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
@@ -28,12 +28,14 @@ export function Accordion({titleValue, items, onClick}: AccordionPropsType) {
     )
 }
 
+export const Accordion = React.memo(AccordionSecret)
+
 type AccordionTitlePropsType = {
     title: string
     onClick: () => void
 }
 
-function AccordionTitle({title, onClick}: AccordionTitlePropsType) {
+function AccordionTitleSecret({title, onClick}: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering')
     return (
         <h3 onClick={onClick}> ----{title}---- </h3>
@@ -45,7 +47,9 @@ type AccordionBodyType = {
     onClick: (value: any) => void
 }
 
-function AccordionBody({items, onClick}: AccordionBodyType) {
+export const AccordionTitle = React.memo(AccordionTitleSecret)
+
+function AccordionBodySecret({items, onClick}: AccordionBodyType) {
     console.log('AccordionBody rendering')
     return (
         <ul>
@@ -57,3 +61,5 @@ function AccordionBody({items, onClick}: AccordionBodyType) {
         </ul>
     )
 }
+
+export const AccordionBody = React.memo(AccordionBodySecret)
