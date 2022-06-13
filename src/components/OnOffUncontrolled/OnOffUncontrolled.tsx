@@ -1,11 +1,11 @@
-import {useState} from "react";
+import React, {useState} from "react";
 
 type OnOffUncontrolled = {
     callBack: (on: boolean) => void
     defaultOn?: boolean
 }
 
-export const OnOffUncontrolled = (p: OnOffUncontrolled) => {
+export const OnOffUncontrolledSecret = (p: OnOffUncontrolled) => {
     let [on, setOn] = useState(p.defaultOn ? p.defaultOn : false) //hook with init value
 
     const onStyle = {
@@ -57,5 +57,6 @@ export const OnOffUncontrolled = (p: OnOffUncontrolled) => {
     )
 }
 
+export const OnOffUncontrolled = React.memo(OnOffUncontrolledSecret)
 
 

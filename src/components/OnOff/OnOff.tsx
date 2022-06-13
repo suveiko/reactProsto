@@ -5,7 +5,7 @@ type OnOff = {
     setOn: (value: boolean) => void
 }
 
-export const OnOff = ({value, setOn}: OnOff ) => {
+export const OnOffSecret = ({value, setOn}: OnOff ) => {
 
     const onStyle = {
         width: '30px',
@@ -52,5 +52,6 @@ export const OnOff = ({value, setOn}: OnOff ) => {
     )
 }
 
+export const OnOff  = React.memo(OnOffSecret)
 
 
