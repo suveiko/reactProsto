@@ -75,3 +75,40 @@ export const HelpsToReactMemo = () => {
     </>
 
 }
+
+export const LikeUseCallbackMemo = () => {
+    console.log('LikeUseCallbackMemo')
+
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(
+        ['React', 'Vue', 'Angular']
+    )
+
+    const addBook = () => {
+        console.log(books)
+        setBooks([...books, 'Docker ' + new Date().getTime()])
+    }
+    const memoizedAddBook = useMemo(() => {
+        return addBook
+    }, [books])
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+
+        {counter}
+        <Books addBook={memoizedAddBook}/>
+    </>
+}
+
+type BooksSecretType = {
+    addBook: () => void
+}
+
+const BooksSecret = ({addBook}: BooksSecretType) => {
+    console.log('Books Secret')
+    return <div>
+        <button onClick={() => addBook()}>Add books</button>
+    </div>
+}
+
+const Books = React.memo(BooksSecret)
