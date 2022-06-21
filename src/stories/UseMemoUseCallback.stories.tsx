@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 
 export default {
     title: 'useMemo'
@@ -84,12 +84,9 @@ export const LikeUseCallbackMemo = () => {
         ['React', 'Vue', 'Angular']
     )
 
-    const addBook = () => {
+    const memoizedAddBook = useCallback(() => {
         console.log(books)
         setBooks([...books, 'Docker ' + new Date().getTime()])
-    }
-    const memoizedAddBook = useMemo(() => {
-        return addBook
     }, [books])
 
     return <>
