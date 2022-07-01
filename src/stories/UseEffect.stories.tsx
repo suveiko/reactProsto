@@ -33,3 +33,45 @@ export const SimpleExample = () => {
         <button onClick={() => setCounter(counter + 1)}>counter+</button>
     </>
 }
+
+export const SetTimeOutExample = () => {
+    const [fake, setFake] = useState(0)
+    const [counter, setCounter] = useState(0)
+
+    console.log('SetTimeOutExample')
+
+    useEffect(() => {
+
+        setInterval(() => {
+            setCounter(state => state + 1)
+        }, 1000)
+
+    }, [])
+
+
+    return <>
+        Hello, counter: {counter} - fake: {fake}
+    </>
+}
+
+
+export const Timer = () => {
+    const [date, setDate] = useState<Date>()
+
+    useEffect(() => {
+        setInterval(() => setDate(new Date()), 1000)
+    }, [])
+
+
+    const timer = date?.toLocaleTimeString()
+
+    const styles = {
+        display: "flex",
+        justifyContent: 'center',
+        fontSize: '50px',
+        border:'1px solid',
+        borderRadius: '20px'
+    }
+
+    return <div style={styles}>{timer}</div>
+}
