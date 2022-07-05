@@ -28,7 +28,9 @@ export const Clock = () => {
         <>
             <button
                 onClick={() => setChange(!change)}
-                style={{cursor:'pointer'}}
+                style={{
+                    cursor: 'pointer',
+                }}
             >
                 Change clock
             </button>
@@ -57,7 +59,7 @@ type AnalogClockType = {
     setDate: Dispatch<SetStateAction<Date>>
 }
 
-export const AnalogClock = ({date, setDate}: AnalogClockType) => {
+const AnalogClock = ({date, setDate}: AnalogClockType) => {
 
     const classNameForClock = [
         {number: 12, className: s.twelve},
@@ -83,7 +85,6 @@ export const AnalogClock = ({date, setDate}: AnalogClockType) => {
         return () => clearInterval(intervalId)
 
     }, [setDate])
-
 
     return (
         <div className={s.clock}>
