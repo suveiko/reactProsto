@@ -1,11 +1,5 @@
-import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
-
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import s from './Clock.module.css'
-
-export default {
-    title: 'Clock demo'
-}
-
 
 export const Clock = () => {
 
@@ -41,10 +35,8 @@ export const Clock = () => {
     );
 };
 
-type DigitalClockType = {
-    date: Date
-}
-const DigitalClock = ({date}: DigitalClockType) => {
+
+const DigitalClock = ({date}: { date: Date }) => {
     const getTwoDigitsString = (num: number) => num < 10 ? `0${num}` : num
 
     return (

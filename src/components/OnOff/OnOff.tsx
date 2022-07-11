@@ -14,6 +14,7 @@ export const OnOffSecret = ({value, setOn}: OnOff ) => {
         marginLeft: '10px',
         display: 'inline-block',
         padding: '2px',
+        cursor: 'pointer',
         backgroundColor: value ? 'green' : 'white'
     }
     const offStyle = {
@@ -23,6 +24,7 @@ export const OnOffSecret = ({value, setOn}: OnOff ) => {
         marginLeft: '10px',
         padding: '2px',
         display: 'inline-block',
+        cursor: 'pointer',
         backgroundColor: !value ? 'red' : 'white'
     }
     const indicatorStyle = {
@@ -33,6 +35,7 @@ export const OnOffSecret = ({value, setOn}: OnOff ) => {
         marginLeft: '10px',
         padding: '2px',
         display: 'inline-block',
+        cursor: 'pointer',
         backgroundColor: value ? 'green' : 'red'
     }
 
