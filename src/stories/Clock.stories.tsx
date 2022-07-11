@@ -22,8 +22,6 @@ export const Clock = () => {
 
     }, [])
 
-    const getTwoDigitsString = (num: number) => num < 10 ? `0${num}` : num
-
     return (
         <>
             <button
@@ -35,30 +33,40 @@ export const Clock = () => {
                 Change clock
             </button>
             {
-                change ?
-                    <div style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        fontSize: '40px'
-                    }}>
-                        <span>{getTwoDigitsString(date.getHours())}</span>
-                        :
-                        <span>{getTwoDigitsString(date.getMinutes())}</span>
-                        :
-                        <span>{getTwoDigitsString(date.getSeconds())}</span>
-                    </div>
+                change
+                    ? <DigitalClock date={date}/>
                     : <AnalogClock date={date} setDate={setDate}/>
             }
         </>
     );
 };
 
+type DigitalClockType = {
+    date: Date
+}
+const DigitalClock = ({date}: DigitalClockType) => {
+    const getTwoDigitsString = (num: number) => num < 10 ? `0${num}` : num
+
+    return (
+        <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            fontSize: '40px'
+        }}>
+            <span>{getTwoDigitsString(date.getHours())}</span>
+            :
+            <span>{getTwoDigitsString(date.getMinutes())}</span>
+            :
+            <span>{getTwoDigitsString(date.getSeconds())}</span>
+        </div>
+    )
+}
+
 
 type AnalogClockType = {
     date: Date
     setDate: Dispatch<SetStateAction<Date>>
 }
-
 const AnalogClock = ({date, setDate}: AnalogClockType) => {
 
     const classNameForClock = [
